@@ -39,5 +39,68 @@ public class Reminder {
 
     }
 
+    /**
+     * returns hours.
+     * @return this.hours the hours unit
+     */
+    public int getHours() {
+        return this.hours;
+    }
+
+    /**
+     * returns minutes.
+     * @return this.mintes the hours unit
+     */
+    public int getMinutes() {
+        return this.minutes;
+    }
+
+    /**
+     * returns the message.
+     * @return this.remind the hours unit
+     */
+    public String getRemind() {
+        return this.remind;
+    }
+
+    /**
+     * returns if it is noon.
+     * @return this.isItNoon the hours unit
+     */
+    public boolean getIsItNoon() {
+        return this.isItNoon;
+    }
+
+    /**
+     * changes hours.
+     * @param hours the hours unit
+     */
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    /**
+     * returns hours.
+     * @param minutes the hours unit
+     */
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
+    /**
+     * returns hours.
+     * @param remind the hours unit
+     */
+    public void setRemind(String remind) {
+        this.remind = remind;
+    }
+
+    /**
+     * returns hours.
+     * @param noon the hours unit
+     */
+    public void setItNoon(boolean noon) {
+        this.isItNoon = noon;
+    }
 
 }
