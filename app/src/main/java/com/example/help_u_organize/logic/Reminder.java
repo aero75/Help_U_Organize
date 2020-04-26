@@ -19,7 +19,7 @@ public class Reminder {
     private int minutes;
 
     /**If it is in the AM or the PM.*/
-    private boolean isItNoon;
+    private boolean isItMorning;
 
     /**
      * Reminder Object. Creates a reminder with a specified thing to remind you about and the time of the message.
@@ -27,15 +27,15 @@ public class Reminder {
      * @param remind What needs to be reminded
      * @param hours the hour of the time
      * @param minutes the minutes of the time
-     * @param isItNoon if it is AM or PM
+     * @param isItMorning if it is AM or PM
      */
 
-    public Reminder(final String remind, final int hours, final int minutes, final boolean isItNoon) {
+    public Reminder(final String remind, final int hours, final int minutes, final boolean isItMorning) {
 
         this.hours = hours;
         this.remind = remind;
         this.minutes = minutes;
-        this.isItNoon = isItNoon;
+        this.isItMorning = isItMorning;
 
     }
 
@@ -44,7 +44,9 @@ public class Reminder {
      * @return this.hours the hours unit
      */
     public int getHours() {
+
         return this.hours;
+
     }
 
     /**
@@ -52,7 +54,9 @@ public class Reminder {
      * @return this.mintes the hours unit
      */
     public int getMinutes() {
+
         return this.minutes;
+
     }
 
     /**
@@ -60,15 +64,19 @@ public class Reminder {
      * @return this.remind the hours unit
      */
     public String getRemind() {
+
         return this.remind;
+
     }
 
     /**
      * returns if it is noon.
      * @return this.isItNoon the hours unit
      */
-    public boolean getIsItNoon() {
-        return this.isItNoon;
+    public boolean getIsItMorning() {
+
+        return this.isItMorning;
+
     }
 
     /**
@@ -76,31 +84,61 @@ public class Reminder {
      * @param hours the hours unit
      */
     public void setHours(int hours) {
+
         this.hours = hours;
+
     }
 
     /**
-     * returns hours.
+     * changes minutes.
      * @param minutes the hours unit
      */
     public void setMinutes(int minutes) {
+
         this.minutes = minutes;
+
     }
 
     /**
-     * returns hours.
+     * changes the remind message.
      * @param remind the hours unit
      */
     public void setRemind(String remind) {
+
         this.remind = remind;
+
     }
 
     /**
-     * returns hours.
-     * @param noon the hours unit
+     * changes the am or pm.
+     * @param morning the hours unit
      */
-    public void setItNoon(boolean noon) {
-        this.isItNoon = noon;
+    public void setIsItMorning(boolean morning) {
+
+        this.isItMorning = morning;
+
     }
 
+    /**
+     * checks if this time is greater than or less than another time
+     * @param other the other time.
+     */
+    public boolean isLater(Reminder other) {
+
+        // checks if other is in the morning or not
+        if (other.getIsItMorning() && !this.isItMorning)
+            return false;
+
+
+        // checks if the hours is lesser
+        if (other.hours < this.hours)
+            return false;
+
+        // checks minutes
+        if (other.minutes < this.minutes)
+            return false;
+
+        // thus, it is later, so return true;
+        return true;
+    }
 }

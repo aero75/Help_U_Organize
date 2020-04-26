@@ -19,14 +19,38 @@ import java.util.Map;
 public class ReminderList {
 
     /**List of reminder*/
-    private List<Reminder> reminders;
+    private ArrayList<Reminder> reminders;
 
-/**
- * Reminder list. Essentially holds all reminders.
- */
+    /**
+     * Reminder list. Essentially holds all reminders.
+     */
     public ReminderList() {
+
         reminders = new ArrayList<>();
+
     }
 
+    /**
+     * returns list of reminders.
+     */
+    public List<Reminder> getReminders() {
+        return reminders;
+    }
+
+    /**
+     * adds a reminder object to the list based on the  time.
+     * @param newReminder the new reminder that needs to be added
+     */
+    public void addReminder(Reminder newReminder) {
+
+        for (int i  = 0; i < reminders.size() - 1; i++) {
+            if (newReminder.isLater(reminders.get(i))
+                && !newReminder.isLater(reminders.get(i + 1))) {
+                reminders.add(i + 1, newReminder);
+                return;
+            }
+        }
+
+    }
 
 }
